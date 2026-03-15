@@ -78,10 +78,10 @@ export default function (
   preventAutoSwitch,
 ) {
   const doSet = (p) => {
-    const xPos = this.GetDigitalInputState(xPositive, p) ? 1 : 0;
-    const xNeg = this.GetDigitalInputState(xNegative, p) ? 1 : 0;
-    const yPos = this.GetDigitalInputState(yPositive, p) ? 1 : 0;
-    const yNeg = this.GetDigitalInputState(yNegative, p) ? 1 : 0;
+    const xPos = this.GetDigitalInputState(xPositive, p, scheme) ? 1 : 0;
+    const xNeg = this.GetDigitalInputState(xNegative, p, scheme) ? 1 : 0;
+    const yPos = this.GetDigitalInputState(yPositive, p, scheme) ? 1 : 0;
+    const yNeg = this.GetDigitalInputState(yNegative, p, scheme) ? 1 : 0;
 
     let x = xPos - xNeg;
     let y = yPos - yNeg;

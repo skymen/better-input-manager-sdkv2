@@ -62,8 +62,8 @@ export default function (
   preventAutoSwitch,
 ) {
   const doSet = (p) => {
-    const positive = this.GetDigitalInputState(positiveInput, p) ? 1 : 0;
-    const negative = this.GetDigitalInputState(negativeInput, p) ? 1 : 0;
+    const positive = this.GetDigitalInputState(positiveInput, p, scheme) ? 1 : 0;
+    const negative = this.GetDigitalInputState(negativeInput, p, scheme) ? 1 : 0;
     const value = positive - negative;
     this.SetAxisInputState(name, p, scheme, value, preventAutoSwitch);
   };
