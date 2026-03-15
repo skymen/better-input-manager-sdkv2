@@ -13,5 +13,10 @@
     "added": "Set Axis From Input\nSet Joystick From Input\nIsDown expression",
     "changed": "",
     "fixed": ""
+  },
+  "2.0.1.1": {
+    "added": "",
+    "changed": "",
+    "fixed": "Set Axis and Set Joystick from Inputs now correctly read the inputs only from the control scheme they are writing to"
   }
 }
