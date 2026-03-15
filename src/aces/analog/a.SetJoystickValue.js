@@ -16,5 +16,14 @@ export const config = {
 };
 export const expose = true;
 export default function (name, x, y, player, scheme, preventAutoSwitch) {
-  this._SetJoystickValue(name, x, y, player, scheme, preventAutoSwitch);
+  x = this.Clamp(x, -1, 1);
+  y = this.Clamp(y, -1, 1);
+  const doSet = (p) => {
+    this.SetJoystickInputState(name, p, scheme, x, y, preventAutoSwitch);
+  };
+  if (player >= 0) {
+    doSet(player);
+  } else {
+    this.ForEveryPlayer((key) => doSet(key));
+  }
 }

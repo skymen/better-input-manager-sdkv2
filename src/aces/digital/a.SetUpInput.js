@@ -13,5 +13,21 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player, scheme) {
-  this._SetUpInput(name, player, scheme);
+  const doSet = (p) => {
+    const curValue = this.GetDigitalInputState(name, p, scheme);
+    if (curValue) {
+      this.SetDigitalInputState(name, p, scheme, false);
+      if (this.GetControlSchemeEnabled(p, scheme)) {
+        this.lastDigitalInput = name;
+        this.lastPlayer = p;
+        this._trigger("OnUp");
+        this._trigger("OnAnyUp");
+      }
+    }
+  };
+  if (player >= 0) {
+    doSet(player);
+  } else {
+    this.ForEveryPlayer((key) => doSet(key));
+  }
 }

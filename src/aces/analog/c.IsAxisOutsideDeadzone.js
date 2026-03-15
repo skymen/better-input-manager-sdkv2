@@ -11,5 +11,13 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  return this._IsAxisOutsideDeadzone(name, player);
+  if (player >= 0) {
+    return this.IsAxisOutsideDeadzone(name, player);
+  }
+  for (const [key] of this.playerData) {
+    if (this.IsAxisOutsideDeadzone(name, key)) {
+      return true;
+    }
+  }
+  return false;
 }

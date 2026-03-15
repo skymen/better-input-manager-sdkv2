@@ -11,5 +11,13 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  return this._IsControlSchemeEnabled(name, player);
+  if (player >= 0) {
+    return this.GetControlSchemeEnabled(player, name);
+  }
+  for (const [key] of this.playerData) {
+    if (this.GetControlSchemeEnabled(key, name)) {
+      return true;
+    }
+  }
+  return false;
 }

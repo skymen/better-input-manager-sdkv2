@@ -7,7 +7,10 @@ export const config = {
     { id: "name", name: "Name", desc: "The name of the wire", type: "string" },
   ],
 };
-export const expose = false;
+export const expose = true;
 export default function (name) {
-  return this._WireFrom(name);
+  if (this.wireData.has(name)) {
+    return this.wireData.get(name);
+  }
+  return 0;
 }

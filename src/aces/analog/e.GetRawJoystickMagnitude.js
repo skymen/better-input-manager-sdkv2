@@ -8,7 +8,11 @@ export const config = {
     { id: "player", name: "Player", desc: "The player ID", type: "number" },
   ],
 };
-export const expose = false;
+export const expose = true;
 export default function (name, player) {
-  return this._GetRawJoystickMagnitude(name, player);
+  if (player >= 0) {
+    const joystick = this.GetJoystickInputState(name, player);
+    return Math.sqrt(joystick.x * joystick.x + joystick.y * joystick.y);
+  }
+  return 0;
 }

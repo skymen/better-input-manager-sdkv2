@@ -12,5 +12,6 @@ export const config = {
 };
 export const expose = true;
 export default function (name, value) {
-  this._SetJoystickDeadzone(name, value);
+  value = this.Clamp(value, -1, 1);
+  this.SetJoystickInputDeadzone(name, value);
 }

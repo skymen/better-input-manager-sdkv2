@@ -11,5 +11,5 @@ export const config = {
 };
 export const expose = true;
 export default function (player) {
-  return this._OnAnyDown(player);
+  return this.lastPlayer === player || player < 0;
 }

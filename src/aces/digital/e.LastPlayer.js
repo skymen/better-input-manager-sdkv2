@@ -5,7 +5,7 @@ export const config = {
   description: "Get the ID of the last player from trigger",
   params: [],
 };
-export const expose = false;
+export const expose = true;
 export default function () {
-  return this._GetLastPlayer();
+  return this.lastPlayer;
 }

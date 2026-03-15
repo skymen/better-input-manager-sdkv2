@@ -12,5 +12,12 @@ export const config = {
 };
 export const expose = true;
 export default function (player, value) {
-  this._SetAutoSwitchControlScheme(player, value);
+  if (player >= 0) {
+    this.SetAutoSwitchControlScheme(player, value);
+  } else {
+    this.ForEveryPlayer((key) => {
+      this.SetAutoSwitchControlScheme(key, value);
+    });
+    this.autoSwitchControlScheme = value;
+  }
 }

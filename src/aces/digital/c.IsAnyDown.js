@@ -10,5 +10,13 @@ export const config = {
 };
 export const expose = true;
 export default function (player) {
-  return this._IsAnyDown(player);
+  if (player >= 0) {
+    return this.IsAnyDigitalInputDown(player);
+  }
+  for (const [key] of this.playerData) {
+    if (this.IsAnyDigitalInputDown(key)) {
+      return true;
+    }
+  }
+  return false;
 }

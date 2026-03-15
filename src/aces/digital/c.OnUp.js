@@ -12,5 +12,8 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  return this._OnUp(name, player);
+  return (
+    this.lastDigitalInput === name &&
+    (this.lastPlayer === player || player < 0)
+  );
 }

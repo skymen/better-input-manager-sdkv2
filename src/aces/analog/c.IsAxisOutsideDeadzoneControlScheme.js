@@ -12,5 +12,13 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player, scheme) {
-  return this._IsAxisOutsideDeadzoneControlScheme(name, player, scheme);
+  if (player >= 0) {
+    return this.IsAxisOutsideDeadzone(name, player, scheme);
+  }
+  for (const [key] of this.playerData) {
+    if (this.IsAxisOutsideDeadzone(name, key, scheme)) {
+      return true;
+    }
+  }
+  return false;
 }

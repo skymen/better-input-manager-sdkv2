@@ -11,5 +11,6 @@ export const config = {
 };
 export const expose = true;
 export default function (value) {
-  this._SetDefaultAxisDeadzone(value);
+  value = this.Clamp(value, 0, 1);
+  this.defaultAxisDeadzone = value;
 }

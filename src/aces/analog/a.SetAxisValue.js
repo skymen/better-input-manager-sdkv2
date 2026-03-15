@@ -15,5 +15,13 @@ export const config = {
 };
 export const expose = true;
 export default function (name, value, player, scheme, preventAutoSwitch) {
-  this._SetAxisValue(name, value, player, scheme, preventAutoSwitch);
+  value = this.Clamp(value, -1, 1);
+  const doSet = (p) => {
+    this.SetAxisInputState(name, p, scheme, value, preventAutoSwitch);
+  };
+  if (player >= 0) {
+    doSet(player);
+  } else {
+    this.ForEveryPlayer((key) => doSet(key));
+  }
 }

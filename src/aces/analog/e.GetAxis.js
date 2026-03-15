@@ -8,7 +8,10 @@ export const config = {
     { id: "player", name: "Player", desc: "The player ID", type: "number" },
   ],
 };
-export const expose = false;
+export const expose = true;
 export default function (name, player) {
-  return this._GetAxis(name, player);
+  if (player >= 0 && this.IsAxisOutsideDeadzone(name, player)) {
+    return this.GetAxisInputState(name, player);
+  }
+  return 0;
 }

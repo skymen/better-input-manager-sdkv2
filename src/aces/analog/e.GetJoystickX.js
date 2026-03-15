@@ -4,11 +4,19 @@ export const config = {
   returnType: "number",
   description: "Get the x value of a joystick",
   params: [
-    { id: "name", name: "Name", desc: "The name of the joystick", type: "string" },
+    {
+      id: "name",
+      name: "Name",
+      desc: "The name of the joystick",
+      type: "string",
+    },
     { id: "player", name: "Player", desc: "The player ID", type: "number" },
   ],
 };
-export const expose = false;
+export const expose = true;
 export default function (name, player) {
-  return this._GetJoystickX(name, player);
+  if (player >= 0 && this.IsJoystickOutsideDeadzone(name, player)) {
+    return this.GetJoystickInputState(name, player).x;
+  }
+  return 0;
 }

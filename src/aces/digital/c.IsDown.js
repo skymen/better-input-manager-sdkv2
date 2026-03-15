@@ -11,5 +11,13 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  return this._IsDown(name, player);
+  if (player >= 0) {
+    return this.GetDigitalInputState(name, player);
+  }
+  for (const [key] of this.playerData) {
+    if (this.GetDigitalInputState(name, key)) {
+      return true;
+    }
+  }
+  return false;
 }

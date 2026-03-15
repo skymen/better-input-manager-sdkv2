@@ -12,5 +12,5 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  this._WireTo(name, player);
+  this.wireData.set(name, player);
 }

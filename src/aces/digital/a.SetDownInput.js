@@ -14,5 +14,21 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player, scheme, preventAutoSwitch) {
-  this._SetDownInput(name, player, scheme, preventAutoSwitch);
+  const doSet = (p) => {
+    const curValue = this.GetDigitalInputState(name, p, scheme);
+    if (!curValue) {
+      this.SetDigitalInputState(name, p, scheme, true, preventAutoSwitch);
+      if (this.GetControlSchemeEnabled(p, scheme)) {
+        this.lastDigitalInput = name;
+        this.lastPlayer = p;
+        this._trigger("OnDown");
+        this._trigger("OnAnyDown");
+      }
+    }
+  };
+  if (player >= 0) {
+    doSet(player);
+  } else {
+    this.ForEveryPlayer((key) => doSet(key));
+  }
 }

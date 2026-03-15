@@ -12,5 +12,11 @@ export const config = {
 };
 export const expose = true;
 export default function (scheme, player) {
-  this._SetControlScheme(scheme, player);
+  if (player >= 0) {
+    this.SwithToControlScheme(player, scheme);
+  } else {
+    this.ForEveryPlayer((key) => {
+      this.SwithToControlScheme(key, scheme);
+    });
+  }
 }

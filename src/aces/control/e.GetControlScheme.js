@@ -7,7 +7,10 @@ export const config = {
     { id: "player", name: "Player", desc: "The player ID", type: "number" },
   ],
 };
-export const expose = false;
+export const expose = true;
 export default function (player) {
-  return this._GetControlScheme(player);
+  if (player >= 0) {
+    return this.GetPlayerActiveControlScheme(player);
+  }
+  return "";
 }

@@ -5,7 +5,7 @@ export const config = {
   description: "Get the name of the last input from trigger",
   params: [],
 };
-export const expose = false;
+export const expose = true;
 export default function () {
-  return this._GetLastInput();
+  return this.lastDigitalInput;
 }

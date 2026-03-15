@@ -12,5 +12,15 @@ export const config = {
 };
 export const expose = true;
 export default function (name, player) {
-  this._SimulateDownInput(name, player);
+  const doSim = (p) => {
+    this.lastDigitalInput = name;
+    this.lastPlayer = p;
+    this._trigger("OnDown");
+    this._trigger("OnAnyDown");
+  };
+  if (player >= 0) {
+    doSim(player);
+  } else {
+    this.ForEveryPlayer((key) => doSim(key));
+  }
 }
