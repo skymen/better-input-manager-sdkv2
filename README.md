@@ -61,10 +61,12 @@ npm run dev
 | Action | Description | Params
 | --- | --- | --- |
 | Set Axis Deadzone | Set the deadzone for an axis | Name             *(string)* <br>Deadzone             *(number)* <br> |
+| Set Axis From Inputs | Set an axis value from two digital inputs (positive - negative) | Name             *(string)* <br>Negative Input             *(string)* <br>Positive Input             *(string)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Axis Value | Set an axis to a value | Name             *(string)* <br>Value             *(number)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Default Axis Deadzone | Set the default deadzone for all axes that don't have a custom deadzone set | Deadzone             *(number)* <br> |
 | Set Default Joystick Deadzone | Set the default deadzone for all joysticks that don't have a custom deadzone set | Deadzone             *(number)* <br> |
 | Set Joystick Deadzone | Set the deadzone for a joystick | Name             *(string)* <br>Deadzone             *(number)* <br> |
+| Set Joystick From Inputs | Set a joystick value from four digital inputs (positive - negative per axis, normalized to length 1) | Name             *(string)* <br>X Negative             *(string)* <br>X Positive             *(string)* <br>Y Negative             *(string)* <br>Y Positive             *(string)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Joystick Value | Set a joystick to a value | Name             *(string)* <br>X             *(number)* <br>Y             *(number)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Joystick Value X | Set a joystick X value | Name             *(string)* <br>Value             *(number)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Joystick Value Y | Set a joystick Y value | Name             *(string)* <br>Value             *(number)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
@@ -114,6 +116,7 @@ npm run dev
 | GetRawJoystickX | Get the raw x value of a joystick | number | Name *(string)* <br>Player *(number)* <br> | 
 | GetRawJoystickY | Get the raw y value of a joystick | number | Name *(string)* <br>Player *(number)* <br> | 
 | GetControlScheme | Get the name of the current control scheme | string | Player *(number)* <br> | 
+| IsDown | Get whether an input is down (1) or up (0) | number | Name *(string)* <br>Player *(number)* <br> | 
 | LastInput | Get the name of the last input from trigger | string |  | 
 | LastPlayer | Get the ID of the last player from trigger | number |  | 
 | WireFrom | Wire a control scheme to a player using an id | number | Name *(string)* <br> | 

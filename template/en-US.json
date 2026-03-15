@@ -48,6 +48,37 @@
               }
             }
           },
+          "SetAxisFromInputs": {
+            "list-name": "Set Axis From Inputs",
+            "display-text": "Set axis [i]{0}[/i] from inputs negative [i]{1}[/i] positive [i]{2}[/i] for player [i]{3}[/i] with control scheme [i]{4}[/i] (prevent auto switch: [i]{5}[/i])",
+            "description": "Set an axis value from two digital inputs (positive - negative)",
+            "params": {
+              "name": {
+                "name": "Name",
+                "desc": "The name of the axis to set"
+              },
+              "negative-input": {
+                "name": "Negative Input",
+                "desc": "The digital input name for the negative direction"
+              },
+              "positive-input": {
+                "name": "Positive Input",
+                "desc": "The digital input name for the positive direction"
+              },
+              "player": {
+                "name": "Player",
+                "desc": "The player ID, -1 for all players"
+              },
+              "control-scheme": {
+                "name": "Control Scheme",
+                "desc": "The control scheme ID"
+              },
+              "prevent-auto-switch": {
+                "name": "Prevent Auto Switch",
+                "desc": "Whether to prevent the control scheme from automatically switching"
+              }
+            }
+          },
           "SetAxisValue": {
             "list-name": "Set Axis Value",
             "display-text": "Set axis [i]{0}[/i] to [i]{1}[/i] for player [i]{2}[/i] with control scheme [i]{3}[/i] (prevent auto switch: [i]{4}[/i])",
@@ -109,6 +140,45 @@
               "deadzone": {
                 "name": "Deadzone",
                 "desc": "The deadzone for the joystick (0-1). Negative value to use default deadzone"
+              }
+            }
+          },
+          "SetJoystickFromInputs": {
+            "list-name": "Set Joystick From Inputs",
+            "display-text": "Set joystick [i]{0}[/i] from inputs X- [i]{1}[/i] X+ [i]{2}[/i] Y- [i]{3}[/i] Y+ [i]{4}[/i] for player [i]{5}[/i] with control scheme [i]{6}[/i] (prevent auto switch: [i]{7}[/i])",
+            "description": "Set a joystick value from four digital inputs (positive - negative per axis, normalized to length 1)",
+            "params": {
+              "name": {
+                "name": "Name",
+                "desc": "The name of the joystick to set"
+              },
+              "x-negative": {
+                "name": "X Negative",
+                "desc": "The digital input name for the negative X direction (left)"
+              },
+              "x-positive": {
+                "name": "X Positive",
+                "desc": "The digital input name for the positive X direction (right)"
+              },
+              "y-negative": {
+                "name": "Y Negative",
+                "desc": "The digital input name for the negative Y direction (up)"
+              },
+              "y-positive": {
+                "name": "Y Positive",
+                "desc": "The digital input name for the positive Y direction (down)"
+              },
+              "player": {
+                "name": "Player",
+                "desc": "The player ID, -1 for all players"
+              },
+              "control-scheme": {
+                "name": "Control Scheme",
+                "desc": "The control scheme ID"
+              },
+              "prevent-auto-switch": {
+                "name": "Prevent Auto Switch",
+                "desc": "Whether to prevent the control scheme from automatically switching"
               }
             }
           },
@@ -695,6 +765,20 @@
             "translated-name": "GetControlScheme",
             "description": "Get the name of the current control scheme",
             "params": {
+              "player": {
+                "name": "Player",
+                "desc": "The player ID"
+              }
+            }
+          },
+          "IsDown": {
+            "translated-name": "IsDown",
+            "description": "Get whether an input is down (1) or up (0)",
+            "params": {
+              "name": {
+                "name": "Name",
+                "desc": "The name of the input"
+              },
               "player": {
                 "name": "Player",
                 "desc": "The player ID"
