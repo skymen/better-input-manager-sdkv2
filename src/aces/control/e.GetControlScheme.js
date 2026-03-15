@@ -7,7 +7,7 @@ export const config = {
     { id: "player", name: "Player", desc: "The player ID", type: "number" },
   ],
 };
-export const expose = true;
+export const expose = false;
 export default function (player) {
   if (player >= 0) {
     return this.GetPlayerActiveControlScheme(player);
