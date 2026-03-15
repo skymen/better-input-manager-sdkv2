@@ -1,15 +1,17 @@
 <img src="./examples/cover.webp" width="150" /><br>
 # Better Input Manager
 <i>An improved input manager</i> <br>
-### Version 2.0.0.0
+### Version 2.0.1.0
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.0.0.c3addon/skymen_better_input_manager-2.0.0.0.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.0.c3addon/skymen_better_input_manager-2.0.1.0.c3addon)
 <br>
 <sub> [See all releases](https://github.com/skymen/better-input-manager-sdkv2/releases) </sub> <br>
 
-#### What's New in 2.0.0.0
+#### What's New in 2.0.1.0
 **Added:**
-Ported to SDK V2
+Set Axis From Input
+Set Joystick From Input
+IsDown expression
 
 
 <sub>[View full changelog](#changelog)</sub>
@@ -124,6 +126,15 @@ npm run dev
 
 ---
 ## Changelog
+
+### Version 2.0.1.0
+
+**Added:**
+Set Axis From Input
+Set Joystick From Input
+IsDown expression
+
+---
 
 ### Version 2.0.0.0
 
