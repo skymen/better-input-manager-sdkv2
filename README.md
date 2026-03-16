@@ -1,20 +1,22 @@
 <img src="./examples/cover.webp" width="150" /><br>
 # Better Input Manager
 <i>An improved input manager</i> <br>
-### Version 2.0.1.2
+### Version 2.0.1.3
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.2.c3addon/skymen_better_input_manager-2.0.1.2.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.3.c3addon/skymen_better_input_manager-2.0.1.3.c3addon)
 <br>
 <sub> [See all releases](https://github.com/skymen/better-input-manager-sdkv2/releases) </sub> <br>
 
-#### What's New in 2.0.1.2
-**Fixed:**
-Should now work on old versions of C3 where SetRuntimeModuleMainScript and SetC3RuntimeScripts weren't supported
+#### What's New in 2.0.1.3
+- **Added:** Added website and docs link
 
 <sub>[View full changelog](#changelog)</sub>
 
 ---
 <b><u>Author:</u></b> skymen <br>
+<b>[Construct Addon Page](https://www.construct.net/en/make-games/addons/1050/better-input-manager)</b>  <br>
+<b>[Addon Website](https://www.construct.net/en/make-games/addons/1050/better-input-manager)</b>  <br>
+<b>[Documentation](https://www.construct.net/en/make-games/addons/1050/better-input-manager/documentation)</b>  <br>
 <sub>Made using [CAW](https://marketplace.visualstudio.com/items?itemName=skymen.caw) </sub><br>
 
 ## Table of Contents
@@ -124,37 +126,22 @@ npm run dev
 ---
 ## Changelog
 
-### Version 2.0.1.2
+**2.0.1.3**
+- **Added:** Added website and docs link
 
-**Fixed:**
-Should now work on old versions of C3 where SetRuntimeModuleMainScript and SetC3RuntimeScripts weren't supported
----
+**2.0.1.2**
+- **Fixed:** Should now work on old versions of C3 where SetRuntimeModuleMainScript and SetC3RuntimeScripts weren't supported
 
-### Version 2.0.1.1
+**2.0.1.1**
+- **Fixed:** Set Axis and Set Joystick from Inputs now correctly read the inputs only from the control scheme they are writing to
 
-**Fixed:**
-Set Axis and Set Joystick from Inputs now correctly read the inputs only from the control scheme they are writing to
----
+**2.0.1.0**
+- **Added:** Set Axis From Input
+- **Added:** Set Joystick From Input
+- **Added:** IsDown expression
 
-### Version 2.0.1.0
+**2.0.0.0**
+- **Added:** Ported to SDK V2
 
-**Added:**
-Set Axis From Input
-Set Joystick From Input
-IsDown expression
-
----
-
-### Version 2.0.0.0
-
-**Added:**
-Ported to SDK V2
-
----
-
-### Version 0.0.0.0
-
-**Added:**
-Initial release.
-
----
+**0.0.0.0**
+- **Added:** Initial release.

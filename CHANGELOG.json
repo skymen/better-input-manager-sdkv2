@@ -23,5 +23,10 @@
     "added": "",
     "changed": "",
     "fixed": "Should now work on old versions of C3 where SetRuntimeModuleMainScript and SetC3RuntimeScripts weren't supported"
+  },
+  "2.0.1.3": {
+    "added": "Added website and docs link",
+    "changed": "",
+    "fixed": ""
   }
 }
