@@ -12,8 +12,10 @@ export const name = "Better Input Manager";
 export const version = _version;
 export const minConstructVersion = undefined;
 export const author = "skymen";
-export const website = "https://www.construct.net";
-export const documentation = "https://www.construct.net";
+export const website =
+  "https://www.construct.net/en/make-games/addons/1050/better-input-manager";
+export const documentation =
+  "https://www.construct.net/en/make-games/addons/1050/better-input-manager/documentation";
 export const description = "An improved input manager";
 export const category = ADDON_CATEGORY.INPUT;
 
