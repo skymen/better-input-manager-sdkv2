@@ -1,14 +1,14 @@
 <img src="./examples/cover.webp" width="150" /><br>
 # Better Input Manager
 <i>An improved input manager</i> <br>
-### Version 2.0.1.3
+### Version 2.0.1.4
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.3.c3addon/skymen_better_input_manager-2.0.1.3.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.4.c3addon/skymen_better_input_manager-2.0.1.4.c3addon)
 <br>
 <sub> [See all releases](https://github.com/skymen/better-input-manager-sdkv2/releases) </sub> <br>
 
-#### What's New in 2.0.1.3
-- **Added:** Added website and docs link
+#### What's New in 2.0.1.4
+- **Added:** Autocomplete IDs for input names, control schemes, axis names and joystick names
 
 <sub>[View full changelog](#changelog)</sub>
 
@@ -125,6 +125,9 @@ npm run dev
 
 ---
 ## Changelog
+
+**2.0.1.4**
+- **Added:** Autocomplete IDs for input names, control schemes, axis names and joystick names
 
 **2.0.1.3**
 - **Added:** Added website and docs link

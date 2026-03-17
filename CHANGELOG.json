@@ -28,5 +28,10 @@
     "added": "Added website and docs link",
     "changed": "",
     "fixed": ""
+  },
+  "2.0.1.4": {
+    "added": "Autocomplete IDs for input names, control schemes, axis names and joystick names",
+    "changed": "",
+    "fixed": ""
   }
 }
