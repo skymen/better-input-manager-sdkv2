@@ -13,6 +13,7 @@ export const config = {
       desc: "The name of the input",
       type: "string",
       initialValue: '""',
+      autocompleteId: "joystick-name",
     },
     {
       id: "x",
@@ -41,6 +42,7 @@ export const config = {
       desc: "The control scheme ID",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
     {
       id: "prevent-auto-switch",

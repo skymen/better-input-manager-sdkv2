@@ -6,7 +6,7 @@ export const config = {
   displayText: "Simulate up input [i]{0}[/i] for player [i]{1}[/i]",
   description: "This only triggers the up event, it does not set the input to an up state",
   params: [
-    { id: "name", name: "Name", desc: "The name of the input", type: "string", initialValue: '""' },
+    { id: "name", name: "Name", desc: "The name of the input", type: "string", initialValue: '""', autocompleteId: "input-name" },
     { id: "player", name: "Player", desc: "The player ID, -1 for all players", type: "number", initialValue: "0" },
   ],
 };

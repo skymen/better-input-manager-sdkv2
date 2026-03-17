@@ -11,6 +11,7 @@ export const config = {
       desc: "The name of the axis",
       type: "string",
       initialValue: '""',
+      autocompleteId: "axis-name",
     },
     {
       id: "player",

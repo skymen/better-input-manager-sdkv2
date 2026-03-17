@@ -6,7 +6,7 @@ export const config = {
   displayText: "On [i]{0}[/i] up for player [i]{1}[/i]",
   description: "Trigger an event when an input is released",
   params: [
-    { id: "name", name: "Name", desc: "The name of the input", type: "string", initialValue: '""' },
+    { id: "name", name: "Name", desc: "The name of the input", type: "string", initialValue: '""', autocompleteId: "input-name" },
     { id: "player", name: "Player", desc: "The player ID, -1 for all players", type: "number", initialValue: "0" },
   ],
 };

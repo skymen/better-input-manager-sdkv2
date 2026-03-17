@@ -13,6 +13,7 @@ export const config = {
       desc: "The name of the joystick",
       type: "string",
       initialValue: '""',
+      autocompleteId: "joystick-name",
     },
     {
       id: "player",
@@ -27,6 +28,7 @@ export const config = {
       desc: "The control scheme to test",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
   ],
 };

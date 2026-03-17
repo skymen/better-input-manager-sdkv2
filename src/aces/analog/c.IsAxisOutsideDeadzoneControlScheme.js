@@ -12,6 +12,7 @@ export const config = {
       desc: "The name of the axis",
       type: "string",
       initialValue: '""',
+      autocompleteId: "axis-name",
     },
     {
       id: "player",
@@ -26,6 +27,7 @@ export const config = {
       desc: "The control scheme to test",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
   ],
 };

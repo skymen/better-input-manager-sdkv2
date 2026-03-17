@@ -14,6 +14,7 @@ export const config = {
       desc: "The name of the axis to set",
       type: "string",
       initialValue: '""',
+      autocompleteId: "axis-name",
     },
     {
       id: "negative-input",
@@ -21,6 +22,7 @@ export const config = {
       desc: "The digital input name for the negative direction",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "positive-input",
@@ -28,6 +30,7 @@ export const config = {
       desc: "The digital input name for the positive direction",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "player",
@@ -42,6 +45,7 @@ export const config = {
       desc: "The control scheme ID",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
     {
       id: "prevent-auto-switch",

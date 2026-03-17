@@ -12,6 +12,7 @@ export const config = {
       desc: "The name of the input",
       type: "string",
       initialValue: '""',
+      autocompleteId: "joystick-name",
     },
     {
       id: "deadzone",

@@ -11,6 +11,7 @@ export const config = {
       desc: "The name of the control scheme",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
     {
       id: "player",

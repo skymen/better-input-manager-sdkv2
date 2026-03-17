@@ -11,6 +11,7 @@ export const config = {
       desc: "The name of the joystick",
       type: "string",
       initialValue: '""',
+      autocompleteId: "joystick-name",
     },
     {
       id: "player",

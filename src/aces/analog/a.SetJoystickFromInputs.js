@@ -14,6 +14,7 @@ export const config = {
       desc: "The name of the joystick to set",
       type: "string",
       initialValue: '""',
+      autocompleteId: "joystick-name",
     },
     {
       id: "x-negative",
@@ -21,6 +22,7 @@ export const config = {
       desc: "The digital input name for the negative X direction (left)",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "x-positive",
@@ -28,6 +30,7 @@ export const config = {
       desc: "The digital input name for the positive X direction (right)",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "y-negative",
@@ -35,6 +38,7 @@ export const config = {
       desc: "The digital input name for the negative Y direction (up)",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "y-positive",
@@ -42,6 +46,7 @@ export const config = {
       desc: "The digital input name for the positive Y direction (down)",
       type: "string",
       initialValue: '""',
+      autocompleteId: "input-name",
     },
     {
       id: "player",
@@ -56,6 +61,7 @@ export const config = {
       desc: "The control scheme ID",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
     {
       id: "prevent-auto-switch",

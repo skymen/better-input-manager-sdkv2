@@ -20,6 +20,7 @@ export const config = {
       desc: "The control scheme to test",
       type: "string",
       initialValue: '""',
+      autocompleteId: "control-scheme",
     },
   ],
 };
