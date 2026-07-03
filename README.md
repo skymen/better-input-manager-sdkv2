@@ -1,14 +1,15 @@
 <img src="./examples/cover.webp" width="150" /><br>
 # Better Input Manager
 <i>An improved input manager</i> <br>
-### Version 2.0.1.4
+### Version 2.0.2.0
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.1.4.c3addon/skymen_better_input_manager-2.0.1.4.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better-input-manager-sdkv2/releases/download/skymen_better_input_manager-2.0.2.0.c3addon/skymen_better_input_manager-2.0.2.0.c3addon)
 <br>
 <sub> [See all releases](https://github.com/skymen/better-input-manager-sdkv2/releases) </sub> <br>
 
-#### What's New in 2.0.1.4
-- **Added:** Autocomplete IDs for input names, control schemes, axis names and joystick names
+#### What's New in 2.0.2.0
+- **Added:** Enable/disable inputs per player (Set Input Enabled, Set All Inputs Enabled, Is Input Enabled). Disabled inputs don't fire triggers and read as 0.
+- **Added:** Scripting-only input listeners (addInputListener/removeInputListener) that can stopPropagation to prevent an input from reaching event-sheet triggers
 
 <sub>[View full changelog](#changelog)</sub>
 
@@ -75,6 +76,8 @@ npm run dev
 | Set Control Scheme | Switch to a control scheme | Control Scheme             *(string)* <br>Player             *(number)* <br> |
 | Set Down Input | Set an input to a down state | Name             *(string)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br>Prevent Auto Switch             *(boolean)* <br> |
 | Set Up Input | Set an input to an up state | Name             *(string)* <br>Player             *(number)* <br>Control Scheme             *(string)* <br> |
+| Set All Inputs Enabled | Master enable/disable of every input for a player. Independent from per-input disables, so re-enabling all keeps individual disables. | Player             *(number)* <br>Enabled             *(boolean)* <br> |
+| Set Input Enabled | Enable or disable a single input for a player. While disabled, its triggers don't fire and its values read as 0. | Name             *(string)* <br>Player             *(number)* <br>Enabled             *(boolean)* <br> |
 | Simulate Down Input | This only triggers the down event, it does not set the input to a down state | Name             *(string)* <br>Player             *(number)* <br> |
 | Simulate Up Input | This only triggers the up event, it does not set the input to an up state | Name             *(string)* <br>Player             *(number)* <br> |
 | Map Wire To Player | Map a wire to a player | Name             *(string)* <br>Player             *(number)* <br> |
@@ -101,6 +104,7 @@ npm run dev
 | On Any Up | Trigger an event when any input is released | Player *(number)* <br> |
 | On Down | Trigger an event when an input is pressed down | Name *(string)* <br>Player *(number)* <br> |
 | On Up | Trigger an event when an input is released | Name *(string)* <br>Player *(number)* <br> |
+| Is Input Enabled | Test whether an input is effectively enabled (both the master toggle and its per-input flag allow it) | Name *(string)* <br>Player *(number)* <br> |
 
 
 ---
@@ -125,6 +129,10 @@ npm run dev
 
 ---
 ## Changelog
+
+**2.0.2.0**
+- **Added:** Enable/disable inputs per player (Set Input Enabled, Set All Inputs Enabled, Is Input Enabled). Disabled inputs don't fire triggers and read as 0.
+- **Added:** Scripting-only input listeners (addInputListener/removeInputListener) that can stopPropagation to prevent an input from reaching event-sheet triggers
 
 **2.0.1.4**
 - **Added:** Autocomplete IDs for input names, control schemes, axis names and joystick names

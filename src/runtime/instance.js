@@ -25,6 +25,8 @@ export default function (parentClass) {
       this.playerData = new Map();
       this.wireData = new Map();
 
+      this.inputListeners = [];
+
       this.lastDigitalInput = "";
       this.lastPlayer = null;
     }
@@ -99,8 +101,51 @@ export default function (parentClass) {
         this.playerData.set(player, {
           controlSchemes: new Map(),
           autoSwitchControlScheme: this.autoSwitchControlScheme,
+          allInputsEnabled: true,
+          disabledInputs: new Set(),
         });
       }
+    }
+
+    // ======= INPUT ENABLE / DISABLE =======
+
+    // Effective enabled state: the per-player master toggle AND the
+    // per-input flag must both allow it. These two layers are kept
+    // independent so re-enabling all inputs preserves individual disables.
+    GetInputEnabled(inputName, player) {
+      this.AssertPlayerExists(player);
+      const pd = this.playerData.get(player);
+      return pd.allInputsEnabled !== false && !pd.disabledInputs.has(inputName);
+    }
+
+    // ======= INPUT LISTENERS (scripting only) =======
+
+    addInputListener(callback) {
+      this.inputListeners.push(callback);
+    }
+
+    removeInputListener(callback) {
+      this.inputListeners = this.inputListeners.filter((cb) => cb !== callback);
+    }
+
+    // Runs before event-sheet triggers for every input event. Returns true
+    // if propagation should continue (no listener called stopPropagation).
+    DispatchInputEvent(type, input, player, controlScheme, simulated) {
+      const evt = {
+        type,
+        input,
+        player,
+        controlScheme,
+        simulated,
+        propagationStopped: false,
+        stopPropagation() {
+          this.propagationStopped = true;
+        },
+      };
+      for (const cb of this.inputListeners) {
+        cb(evt);
+      }
+      return !evt.propagationStopped;
     }
 
     SetAutoSwitchControlScheme(player, autoSwitch) {
@@ -164,7 +209,7 @@ export default function (parentClass) {
       }
     }
 
-    GetDigitalInputState(inputName, player, controlScheme) {
+    GetDigitalInputStateRaw(inputName, player, controlScheme) {
       controlScheme = this.SchemeOrPlayerActiveControlScheme(
         controlScheme,
         player,
@@ -178,6 +223,11 @@ export default function (parentClass) {
         .get(inputName)
         .statePerPlayer.get(player)
         .get(controlScheme);
+    }
+
+    GetDigitalInputState(inputName, player, controlScheme) {
+      if (!this.GetInputEnabled(inputName, player)) return false;
+      return this.GetDigitalInputStateRaw(inputName, player, controlScheme);
     }
 
     IsAnyDigitalInputDown(player, controlScheme) {
@@ -201,6 +251,8 @@ export default function (parentClass) {
       state,
       preventAutoSwitch = false,
     ) {
+      // A disabled input records its raw state silently but never auto-switches.
+      if (!this.GetInputEnabled(inputName, player)) preventAutoSwitch = true;
       this.AssertDigitalInputPlayerHasControlScheme(
         inputName,
         player,
@@ -253,6 +305,7 @@ export default function (parentClass) {
     }
 
     GetAxisInputState(inputName, player, controlScheme) {
+      if (!this.GetInputEnabled(inputName, player)) return 0;
       controlScheme = this.SchemeOrPlayerActiveControlScheme(
         controlScheme,
         player,
@@ -275,6 +328,8 @@ export default function (parentClass) {
       state,
       preventAutoSwitch = false,
     ) {
+      // A disabled input records its raw state silently but never auto-switches.
+      if (!this.GetInputEnabled(inputName, player)) preventAutoSwitch = true;
       this.AssertAxisInputPlayerHasControlScheme(
         inputName,
         player,
@@ -392,7 +447,7 @@ export default function (parentClass) {
       }
     }
 
-    GetJoystickInputState(inputName, player, controlScheme) {
+    GetJoystickInputStateRaw(inputName, player, controlScheme) {
       controlScheme = this.SchemeOrPlayerActiveControlScheme(
         controlScheme,
         player,
@@ -408,6 +463,11 @@ export default function (parentClass) {
         .get(controlScheme);
     }
 
+    GetJoystickInputState(inputName, player, controlScheme) {
+      if (!this.GetInputEnabled(inputName, player)) return { x: 0, y: 0 };
+      return this.GetJoystickInputStateRaw(inputName, player, controlScheme);
+    }
+
     SetJoystickInputState(
       inputName,
       player,
@@ -416,6 +476,8 @@ export default function (parentClass) {
       y,
       preventAutoSwitch = false,
     ) {
+      // A disabled input records its raw state silently but never auto-switches.
+      if (!this.GetInputEnabled(inputName, player)) preventAutoSwitch = true;
       this.AssertJoystickInputPlayerHasControlScheme(
         inputName,
         player,
@@ -438,28 +500,14 @@ export default function (parentClass) {
     }
 
     SetJoystickInputStateX(inputName, player, controlScheme, x) {
-      this.AssertJoystickInputPlayerHasControlScheme(
-        inputName,
-        player,
-        controlScheme,
-      );
-      let y = this.joystickInputData
-        .get(inputName)
-        .statePerPlayer.get(player)
-        .get(controlScheme).y;
+      // Read the raw other-component so a disabled joystick isn't clobbered to 0.
+      let y = this.GetJoystickInputStateRaw(inputName, player, controlScheme).y;
       this.SetJoystickInputState(inputName, player, controlScheme, x, y);
     }
 
     SetJoystickInputStateY(inputName, player, controlScheme, y) {
-      this.AssertJoystickInputPlayerHasControlScheme(
-        inputName,
-        player,
-        controlScheme,
-      );
-      let x = this.joystickInputData
-        .get(inputName)
-        .statePerPlayer.get(player)
-        .get(controlScheme).x;
+      // Read the raw other-component so a disabled joystick isn't clobbered to 0.
+      let x = this.GetJoystickInputStateRaw(inputName, player, controlScheme).x;
       this.SetJoystickInputState(inputName, player, controlScheme, x, y);
     }
 

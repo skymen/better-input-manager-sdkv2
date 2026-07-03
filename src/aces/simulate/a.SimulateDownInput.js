@@ -13,10 +13,14 @@ export const config = {
 export const expose = true;
 export default function (name, player) {
   const doSim = (p) => {
+    if (!this.GetInputEnabled(name, p)) return;
     this.lastDigitalInput = name;
     this.lastPlayer = p;
-    this._trigger("OnDown");
-    this._trigger("OnAnyDown");
+    const scheme = this.GetPlayerActiveControlScheme(p);
+    if (this.DispatchInputEvent("down", name, p, scheme, true)) {
+      this._trigger("OnDown");
+      this._trigger("OnAnyDown");
+    }
   };
   if (player >= 0) {
     doSim(player);

@@ -11,6 +11,7 @@
           "analog": "Analog",
           "control": "Control Scheme",
           "digital": "Digital",
+          "general": "General",
           "simulate": "Simulate",
           "wire": "Wire"
         },
@@ -339,6 +340,40 @@
               }
             }
           },
+          "SetAllInputsEnabled": {
+            "list-name": "Set All Inputs Enabled",
+            "display-text": "Set all inputs enabled [i]{1}[/i] for player [i]{0}[/i]",
+            "description": "Master enable/disable of every input for a player. Independent from per-input disables, so re-enabling all keeps individual disables.",
+            "params": {
+              "player": {
+                "name": "Player",
+                "desc": "The player ID, -1 for all players"
+              },
+              "enabled": {
+                "name": "Enabled",
+                "desc": "Whether all inputs are enabled"
+              }
+            }
+          },
+          "SetInputEnabled": {
+            "list-name": "Set Input Enabled",
+            "display-text": "Set input [i]{0}[/i] enabled [i]{2}[/i] for player [i]{1}[/i]",
+            "description": "Enable or disable a single input for a player. While disabled, its triggers don't fire and its values read as 0.",
+            "params": {
+              "name": {
+                "name": "Name",
+                "desc": "The name of the input"
+              },
+              "player": {
+                "name": "Player",
+                "desc": "The player ID, -1 for all players"
+              },
+              "enabled": {
+                "name": "Enabled",
+                "desc": "Whether the input is enabled"
+              }
+            }
+          },
           "SimulateDownInput": {
             "list-name": "Simulate Down Input",
             "display-text": "Simulate down input [i]{0}[/i] for player [i]{1}[/i]",
@@ -622,6 +657,21 @@
             "list-name": "On Up",
             "display-text": "On [i]{0}[/i] up for player [i]{1}[/i]",
             "description": "Trigger an event when an input is released",
+            "params": {
+              "name": {
+                "name": "Name",
+                "desc": "The name of the input"
+              },
+              "player": {
+                "name": "Player",
+                "desc": "The player ID, -1 for all players"
+              }
+            }
+          },
+          "IsInputEnabled": {
+            "list-name": "Is Input Enabled",
+            "display-text": "Is input [i]{0}[/i] enabled for player [i]{1}[/i]",
+            "description": "Test whether an input is effectively enabled (both the master toggle and its per-input flag allow it)",
             "params": {
               "name": {
                 "name": "Name",

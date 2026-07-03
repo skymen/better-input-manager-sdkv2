@@ -33,5 +33,10 @@
     "added": "Autocomplete IDs for input names, control schemes, axis names and joystick names",
     "changed": "",
     "fixed": ""
+  },
+  "2.0.2.0": {
+    "added": "Enable/disable inputs per player (Set Input Enabled, Set All Inputs Enabled, Is Input Enabled). Disabled inputs don't fire triggers and read as 0.\nScripting-only input listeners (addInputListener/removeInputListener) that can stopPropagation to prevent an input from reaching event-sheet triggers",
+    "changed": "",
+    "fixed": ""
   }
 }
